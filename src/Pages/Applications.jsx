@@ -89,16 +89,16 @@ const Applications = () => {
   };
 
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-blue-light">
       <span className="flex justify-between items-center mb-4">
-        <h2 className="text-3xl font-semibold">Applications</h2>
+        <h2 className="text-3xl font-semibold text-blue">Applications</h2>
         <div className="flex items-center gap-4">
           <span className="hidden md:flex items-center gap-2">
-            <p className="text-secondary-text">Total Applications:</p>
-            <p className="font-semibold">{jobs.length}</p>
+            <p className="text-blue">Total Applications:</p>
+            <p className="font-semibold text-blue">{jobs.length}</p>
           </span>
           <button
-            className="bg-black text-white rounded-full py-2 px-2.5 flex justify-center items-center gap-3 text-sm"
+            className="bg-blue text-white rounded-full py-2 px-2.5 flex justify-center items-center gap-3 text-sm"
             onClick={handleOpenJobModal}
           >
             <p className="hidden md:flex">Add new Job</p>
@@ -169,7 +169,7 @@ const Applications = () => {
             .map((job) => (
               <div
                 key={job.id}
-                className="rounded-lg overflow-hidden mt-4 cursor-pointer hover:shadow-lg bg-[#F8F9F8] border border-light-gray"
+                className="rounded-lg overflow-hidden mt-4 cursor-pointer hover:shadow-lg bg-white border border-light-gray"
                 onClick={() => handleOpenEditModal(job)}
               >
                 <div className="p-4">

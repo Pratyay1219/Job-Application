@@ -2,14 +2,14 @@ import React from 'react'
 
 function Jobsearch() {
   return (
-    <div className='h-screen'>
-      <h2 className="text-teal-dark text-3xl font-semibold mb-6">Job Search</h2>
+    <div className='h-screen bg-blue-light'>
+      <h2 className="text-blue text-3xl font-semibold mb-6">Job Search</h2>
 
       <form className="max-w-md">
         <div className="relative">
           <div className="absolute inset-y-0 start-0 flex items-center pl-3">
             <svg
-              className="w-4 h-4 text-gray"
+              className="w-4 h-4 text-blue"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -26,7 +26,7 @@ function Jobsearch() {
           </div>
           <input
             type="search"
-            className="block w-full p-4 pl-10 text-sm text-[#888] border border-gray-light rounded-md bg-white focus:border-teal outline-none"
+            className="block w-full p-4 pl-10 text-sm text-blue border border-blue-light rounded-md bg-white focus:border-blue outline-none"
             placeholder="Search job roles and companies"
             required
           />

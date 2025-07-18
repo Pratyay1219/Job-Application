@@ -11,12 +11,12 @@ const Settings = () => {
     setShowDeleteAccountModal(true);
   }
   return (
-    <section className=" h-screen">
+    <section className="h-screen bg-blue-light">
       <div className="max-w-2xl mb-12">
-        <h2 className="text-teal-dark text-3xl font-semibold">
+        <h2 className="text-blue text-3xl font-semibold">
           Change password
         </h2>
-        <p className="text-gray mb-6">Manage your account password</p>
+        <p className="text-blue mb-6">Manage your account password</p>
         <form>
           {/* Current Password */}
           <div>

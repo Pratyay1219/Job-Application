@@ -42,9 +42,9 @@ const EditJobModal = ({ job, setEditModal, onEditJob }) => {
 
   return (
     <div className="fixed inset-0 bg-black/80 z-40 flex justify-center items-center">
-      <div className="p-6 w-[80%] lg:w-[50%] shadow-md bg-[#f3f3f3] rounded-lg">
+      <div className="p-6 w-[80%] lg:w-[50%] shadow-md bg-blue-light rounded-lg border-2 border-blue">
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Edit Job</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-blue">Edit Job</h2>
           <form className="flex flex-col gap-4">
             <input
               type="text"
@@ -52,7 +52,7 @@ const EditJobModal = ({ job, setEditModal, onEditJob }) => {
               value={editedJob.jobTitle}
               onChange={handleInputChange}
               placeholder="Job Title"
-              className="border border-light-gray rounded-md p-2 outline-none focus:ring-[1px] focus:ring-[#E0E1E6]"
+              className="border-2 border-blue rounded-md p-2 outline-none focus:ring-2 focus:ring-blue text-blue"
               required
             />
             <input
@@ -61,7 +61,7 @@ const EditJobModal = ({ job, setEditModal, onEditJob }) => {
               value={editedJob.companyName}
               onChange={handleInputChange}
               placeholder="Company Name"
-              className="border border-light-gray rounded-md p-2 outline-none focus:ring-[1px] focus:ring-[#E0E1E6]"
+              className="border-2 border-blue rounded-md p-2 outline-none focus:ring-2 focus:ring-blue text-blue"
               required
             />
             <input
@@ -70,17 +70,17 @@ const EditJobModal = ({ job, setEditModal, onEditJob }) => {
               value={editedJob.applicationDate}
               onChange={handleInputChange}
               placeholder="Application Date"
-              className="border border-light-gray rounded-md p-2 outline-none focus:ring-[1px] focus:ring-[#E0E1E6]"
+              className="border-2 border-blue rounded-md p-2 outline-none focus:ring-2 focus:ring-blue text-blue"
               required
             />
             {/* Status history section */}
-            <div className="bg-white p-3 rounded border border-light-gray">
-              <h4 className="font-semibold mb-2">Status History</h4>
+            <div className="bg-white p-3 rounded border-2 border-blue">
+              <h4 className="font-semibold mb-2 text-blue">Status History</h4>
               <ul className="mb-2">
                 {(editedJob.statusHistory || []).map((entry, idx) => (
                   <li key={idx} className="flex gap-2 items-center text-sm mb-1">
-                    <span className="font-bold">{entry.status}</span>
-                    <span className="text-gray-500">{new Date(entry.date).toLocaleDateString()}</span>
+                    <span className="font-bold text-blue">{entry.status}</span>
+                    <span className="text-blue-light">{new Date(entry.date).toLocaleDateString()}</span>
                   </li>
                 ))}
               </ul>
@@ -88,7 +88,7 @@ const EditJobModal = ({ job, setEditModal, onEditJob }) => {
                 <select
                   value={newStatus}
                   onChange={e => setNewStatus(e.target.value)}
-                  className="border rounded p-1"
+                  className="border-2 border-blue rounded p-1 text-blue"
                 >
                   <option value="">Select status</option>
                   {statusOptions.map(opt => (
@@ -99,23 +99,23 @@ const EditJobModal = ({ job, setEditModal, onEditJob }) => {
                   type="date"
                   value={newStatusDate}
                   onChange={e => setNewStatusDate(e.target.value)}
-                  className="border rounded p-1"
+                  className="border-2 border-blue rounded p-1 text-blue"
                 />
-                <button type="button" onClick={handleAddStatus} className="bg-black text-white rounded px-2 py-1 text-xs">Add</button>
+                <button type="button" onClick={handleAddStatus} className="bg-blue text-white rounded px-2 py-1 text-xs">Add</button>
               </div>
             </div>
             <div className="flex gap-3 justify-end">
               <button
                 type="button"
                 onClick={handleSaveChanges}
-                className="bg-black text-white rounded-md py-2 px-4"
+                className="bg-blue text-white rounded-md py-2 px-4"
               >
                 Save
               </button>
               <button
                 type="button"
                 onClick={handleCancel}
-                className="bg-light-gray text-primary-text rounded-md py-2 px-4"
+                className="bg-white text-blue border-2 border-blue rounded-md py-2 px-4"
               >
                 Cancel
               </button>

@@ -199,25 +199,25 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
+    <div className="bg-blue-light min-h-screen">
       <div className="mb-5 flex flex-wrap justify-between items-center">
-        <h1 className="font-bold text-[#2A2A2A] text-xl lg:text-2xl">
+        <h1 className="font-bold text-blue text-xl lg:text-2xl">
           {getGreeting()} {userName || "User"},
         </h1>
-        <div className="gap-2 items-center border-l-2 border-[#5D6661] pl-4 hidden lg:flex">
+        <div className="gap-2 items-center border-l-2 border-blue pl-4 hidden lg:flex">
           <div>
-            <p className="text-[12px]">{userName || "User"}</p>
-            <p className="text-[12px]">{userEmail || "you@beautiful.com"}</p>
+            <p className="text-[12px] text-blue">{userName || "User"}</p>
+            <p className="text-[12px] text-blue">{userEmail || "you@beautiful.com"}</p>
           </div>
         </div>
       </div>
       <div className="rounded-lg mb-4">
         <div>
-          <h2 className="text-xl text-gray-dark">Getting Started</h2>
-          <div className="w-44 bg-light-gray rounded-full h-1.5 mt-1.5">
-            <div className="bg-dark-gray h-1.5 rounded-full w-20"></div>
+          <h2 className="text-xl text-blue">Getting Started</h2>
+          <div className="w-44 bg-blue/20 rounded-full h-1.5 mt-1.5">
+            <div className="bg-blue h-1.5 rounded-full w-20"></div>
           </div>
-          <p className="mt-1 text-[12px]">45% done</p>
+          <p className="mt-1 text-[12px] text-blue">45% done</p>
           <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3 mb-12">
             <DashboardCard
               to="/dashboard/profile"
@@ -245,62 +245,69 @@ const Dashboard = () => {
             />
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-4">
-            <div className="lg:col-span-2 p-4 relative">
-              <div className="flex justify-between items-center">
-                <h3 className="text-lg">Applications Tracking</h3>
-              </div>
-              <div className="w-full">
-                {/* Timeline Line Chart for job status changes */}
-                <div className="mb-4">
-                  <label className="mr-2 font-semibold">Show timeline for:</label>
-                  <select
-                    className="p-2 border rounded"
-                    value={selectedJobId || "all"}
-                    onChange={e => setSelectedJobId(e.target.value)}
-                  >
-                    <option value="all">All Jobs</option>
-                    {jobs.map(job => (
-                      <option key={job.id} value={job.id}>
-                        {job.jobTitle} @ {job.companyName}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <Line data={lineChartData} options={lineChartOptions} />
-                <div className="mt-2 text-sm text-gray-600">Total Applications: {selectedJobId && selectedJobId !== "all" ? jobs.filter(j => j.id === Number(selectedJobId)).length : jobs.length}</div>
-              </div>
+          {/* Make chart and resources full width */}
+          <div className="p-4 relative bg-white shadow rounded w-full mb-8">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg text-blue">Applications Tracking</h3>
             </div>
-            <div>
-              <h3 className="mb-2">Resources</h3>
-              <div className="grid md:grid-cols-2 gap-3 lg:grid-cols-1">
-                {resources.map((resource, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between py-2 cursor-pointer border-l-4 pl-3 pr-2 rounded shadow-sm"
-                  >
-                    <p>{resource.title}</p>
-                    <a
-                      href={resource.viewUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hidden md:flex items-center gap-2 bg-white rounded-full border p-1.5 pl-4 hover:bg-dark-gray hover:text-white hover:shadow-md group"
+            <div className="w-full">
+              {/* Timeline Line Chart for job status changes */}
+              <div className="mb-4">
+                <label className="mr-2 font-semibold text-blue">Show timeline for:</label>
+                <select
+                  className="p-2 border rounded text-blue border-blue-light"
+                  value={selectedJobId || "all"}
+                  onChange={e => setSelectedJobId(e.target.value)}
+                >
+                  <option value="all">All Jobs</option>
+                  {jobs.map(job => (
+                    <option key={job.id} value={job.id}>
+                      {job.jobTitle} @ {job.companyName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {/* Add space between dropdown and Applications Tracking heading */}
+              <div className="mb-4"></div>
+              <Line data={lineChartData} options={lineChartOptions} />
+              <div className="mt-2 text-sm text-blue">
+                Total Applications:{" "}
+                {selectedJobId && selectedJobId !== "all"
+                  ? jobs.filter(j => j.id === Number(selectedJobId)).length
+                  : jobs.length}
+              </div>
+              {/* Resources section full width under chart */}
+              <div className="mt-8">
+                <h3 className="mb-2 text-blue">Resources</h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {resources.map((resource, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between py-2 cursor-pointer border-l-4 border-blue pl-3 pr-2 rounded shadow-sm bg-blue-light"
                     >
-                      <p className="hidden md:flex">View</p>
-                      <div className="group-hover:bg-gray group-hover:rounded-full group-hover:p-1.5 bg-white p-1.5">
+                      <p className="text-blue">{resource.title}</p>
+                      <a
+                        href={resource.viewUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden md:flex items-center gap-2 bg-white rounded-full border border-blue-light p-1.5 pl-4 hover:bg-blue hover:text-white hover:shadow-md group"
+                      >
+                        <p className="hidden md:flex">View</p>
+                        <div className="group-hover:bg-blue-light group-hover:rounded-full group-hover:p-1.5 bg-white p-1.5">
+                          <FaLongArrowAltRight />
+                        </div>
+                      </a>
+                      <a
+                        href={resource.viewUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="md:hidden p-1.5 hover:bg-blue rounded-full hover:text-white border border-blue-light"
+                      >
                         <FaLongArrowAltRight />
-                      </div>
-                    </a>
-                    <a
-                      href={resource.viewUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="md:hidden p-1.5 hover:bg-dark-gray rounded-full hover:text-white border"
-                    >
-                      <FaLongArrowAltRight />
-                    </a>
-                  </div>
-                ))}
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

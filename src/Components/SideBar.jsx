@@ -38,7 +38,7 @@ const SideBar = () => {
   return (
     <div>
       <nav
-        className={`px-5 py-3 fixed z-50 w-full lg:hidden bg-[#19211D] text-white ${
+        className={`px-5 py-3 fixed z-50 w-full lg:hidden bg-blue text-white ${
           openSidebar ? "-translate-y-full" : "translate-x-0"
         }`}
       >
@@ -65,11 +65,11 @@ const SideBar = () => {
         className={`fixed h-full top-0 left-0 bottom-0 z-40 w-56 py-4 lg:py-6 transition-transform 
  ${
    openSidebar ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
- } bg-[#19211D]`}
+ } bg-blue`}
       >
-        <div className="rounded-[20px] overflow-y-auto px-4 bg-[#19211D] text-white h-full">
+        <div className="rounded-[20px] overflow-y-auto px-4 bg-blue text-white h-full">
           <div className="flex items-center justify-between pl-6">
-            <p className="">Job Tracker</p>
+            <p className="text-white">Job Tracker</p>
             <button
               className="text-xl lg:hidden"
               title="Minimize Sidebar"
@@ -85,41 +85,41 @@ const SideBar = () => {
               <li key={item.id} onClick={toggleMenu}>
                 <Link
                   to={item.path}
-                  className="flex items-center gap-2 py-2 pl-5 rounded-full cursor-pointer hover:bg-[#E0E1E0] hover:text-primary-text transition-colors duration-300"
+                  className="group flex items-center gap-2 py-2 pl-5 rounded-full cursor-pointer hover:bg-blue-light transition-colors duration-300"
                 >
-                  <span className="text-xl">{item.icon}</span>
-                  <h4 className="">{item.label}</h4>
+                  <span className="text-xl group-hover:text-blue text-white">{item.icon}</span>
+                  <h4 className="text-white group-hover:text-blue">{item.label}</h4>
                 </Link>
               </li>
             ))}
           </ul>
         </div>
-        <div className="my-4 rounded shadow-sm absolute bottom-1 bg-[#19211D] w-44">
+        <div className="my-4 rounded shadow-sm absolute bottom-1 bg-blue w-44">
           <ul className="py-3 text-white space-y-2">
             <li>
               <Link
                 to="settings"
-                className="flex items-center gap-2 py-2 pl-5 rounded-full cursor-pointer hover:bg-[#E0E1E0] hover:text-primary-text transition-colors duration-300"
+                className="group flex items-center gap-2 py-2 pl-5 rounded-full cursor-pointer hover:bg-blue-light transition-colors duration-300"
                 onClick={toggleMenu}
               >
-                <span className="text-xl">
+                <span className="text-xl group-hover:text-blue text-white">
                   <RiSettings5Fill />
                 </span>
-                <div className="text-sm">Settings</div>
+                <div className="text-sm text-white group-hover:text-blue">Settings</div>
               </Link>
             </li>
             <li>
               <div
-                className="flex items-center gap-2 py-2 pl-5 rounded-full cursor-pointer hover:bg-[#E0E1E0] hover:text-primary-text transition-colors duration-300"
+                className="group flex items-center gap-2 py-2 pl-5 rounded-full cursor-pointer hover:bg-blue-light transition-colors duration-300"
                 onClick={() => {
                   toggleMenu();
                   toggleLogoutModal();
                 }}
               >
-                <span className="text-xl">
+                <span className="text-xl group-hover:text-blue text-white">
                   <RiLogoutCircleRFill />
                 </span>
-                <div className="text-sm">Logout</div>
+                <div className="text-sm text-white group-hover:text-blue">Logout</div>
               </div>
             </li>
           </ul>

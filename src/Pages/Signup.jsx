@@ -74,81 +74,79 @@ const Signup = () => {
   };
 
   return (
-    <div className="h-screen lg:flex max-w-screen-lg mx-auto gap-16 w-full py-12 px-4">
-      <div className="lg:w-1/2 max-w-lg mx-auto md:pt-10">
-        <h2 className="mb-10 mt-6 text-4xl font-semibold">
-          Keep your job applications organized
-        </h2>
+  <div className="h-screen flex justify-center items-center bg-blue-light px-4">
+    <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+      <h2 className="text-3xl font-bold text-blue mb-6 text-right">
+        Keep your job applications organized
+      </h2>
+      <form onSubmit={handleSignup} className="space-y-5">
         <div>
-          <form onSubmit={handleSignup} className="space-y-5">
-            <div>
-              <label htmlFor="name" className="p-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Enter your name...."
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="block w-full rounded-lg outline-none py-2 px-2.5 mt-2 text-gray-dark shadow-sm border border-gray"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="p-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                placeholder="youremail@gmail.com"
-                value={email}
-                onChange={handleEmailChange}
-                required
-                autoComplete="email"
-                className="block w-full rounded-lg outline-none py-2 px-2.5 mt-2 text-gray-dark shadow-sm border border-gray"
-              />
-              {emailError && (
-                <p className="text-[#c93434] text-sm mt-2">{emailError}</p>
-              )}
-            </div>
-            <div>
-              <label htmlFor="password" className="p-2">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                placeholder="**********"
-                value={password}
-                onChange={handlePasswordChange}
-                required
-                className="block w-full rounded-lg outline-none py-2 px-2.5 mt-2 text-gray-dark shadow-sm border border-gray"
-              />
-              {passwordError && (
-                <p className="text-[#c93434] text-sm mt-2">{passwordError}</p>
-              )}
-            </div>
-            <div className="pt-4">
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-lg bg-black p-3 text-sm font-semibold text-white mb-2"
-              >
-                Create Account
-              </button>
-              <p className="text-sm text-dark-gray">
-                Already have an account?{" "}
-                <Link to="/login" className="underline hover:no-underline">
-                  Login
-                </Link>
-              </p>
-            </div>
-          </form>
+          <label htmlFor="name" className="block text-sm font-medium text-primary-text mb-1">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name..."
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="w-full px-3 py-2 border border-light-gray rounded-md focus:outline-none focus:ring-2 focus:ring-blue"
+          />
         </div>
-      </div>
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-primary-text mb-1">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="youremail@gmail.com"
+            value={email}
+            onChange={handleEmailChange}
+            required
+            autoComplete="email"
+            className="w-full px-3 py-2 border border-light-gray rounded-md focus:outline-none focus:ring-2 focus:ring-blue"
+          />
+          {emailError && (
+            <p className="text-error text-sm mt-1">{emailError}</p>
+          )}
+        </div>
+        <div>
+          <label htmlFor="password" className="block text-sm font-medium text-primary-text mb-1">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            placeholder="********"
+            value={password}
+            onChange={handlePasswordChange}
+            required
+            className="w-full px-3 py-2 border border-light-gray rounded-md focus:outline-none focus:ring-2 focus:ring-blue"
+          />
+          {passwordError && (
+            <p className="text-error text-sm mt-1">{passwordError}</p>
+          )}
+        </div>
+        <div>
+          <button
+            type="submit"
+            className="w-full bg-blue text-white py-2 rounded-md font-semibold hover:opacity-90 transition"
+          >
+            Create Account
+          </button>
+          <p className="mt-3 text-sm text-secondary-text text-center">
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue underline hover:no-underline">
+              Login
+            </Link>
+          </p>
+        </div>
+      </form>
     </div>
-  );
+  </div>
+);
 };
 
 export default Signup;
