@@ -5,7 +5,7 @@ This web application is designed to help users keep track of their job applicati
 ## **How to Run the Project**
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/Pratyay1219/Job-Application-Tracker.git
+    git clone https://github.com/Pratyay1219/Job-Application.git
     cd job-application-tracker
     ```
 2. **Install dependencies**:
